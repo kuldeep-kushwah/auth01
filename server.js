@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express=require('express');
 var app=express();
 const path=require('path');
@@ -6,7 +7,7 @@ app.use(bodyparser.urlencoded({extended:true}));
 app.use(bodyparser.json());
 const mongoose=require('mongoose');
 const userroute=require('./routes/user')
-const DB='mongodb+srv://xxxfist:xxxfist@cluster0.l5lbqfg.mongodb.net/users';
+const DB=process.env.db;
 
 
 // mongoose.connect('mongodb://localhost:27017/faltoo1',(err)=>{
@@ -26,7 +27,7 @@ mongoose.connect(DB,(err)=>{
 //const usermodel=mongoose.model('users',{name:'string', username:'string', password:'string'});
 const pathline=path.join(__dirname,"build");
 
-console.log(pathline);
+
 
 app.use(express.static(pathline));
 
@@ -45,7 +46,7 @@ app.use('/',(req,res)=>{
 
 
 
-const port=process.env.port || 5000;
+const port=process.env.PORT || 5000;
 app.listen(port,()=>{
     console.log('connection established! on port:'+port);
 })
