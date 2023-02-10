@@ -6,11 +6,6 @@ const bodyparser=require('body-parser');
 const mongoose =require('mongoose');
 const usermodel=mongoose.model('users',{name:'string', username:'string', password:'string'});
 
-// const secure=async(password)=>{
-//         const passwordhash=await bcrypt.hash(password,10);
-//         console.log(passwordhash);
-
-// }
 
 router.post('/register',(req,res)=>{
     const passwordhash=bcrypt.hashSync(req.body.password,10);
