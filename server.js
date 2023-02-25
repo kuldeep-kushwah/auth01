@@ -9,14 +9,6 @@ const mongoose=require('mongoose');
 const userroute=require('./routes/user')
 const DB=process.env.db;
 
-
-// mongoose.connect('mongodb://localhost:27017/faltoo1',(err)=>{
-//     if(err)
-//     console.log('something went wrong while connection');
-//     else
-//     console.log('mongodb Connection established successfully!');
-// })
-
 mongoose.connect(DB,(err)=>{
     if(err)
     console.log('something went wrong while connection');
@@ -24,7 +16,7 @@ mongoose.connect(DB,(err)=>{
     console.log('mongodb Connection established successfully!');
 })
 
-//const usermodel=mongoose.model('users',{name:'string', username:'string', password:'string'});
+
 const pathline=path.join(__dirname,"build");
 
 
